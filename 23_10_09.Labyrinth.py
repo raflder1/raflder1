@@ -10,6 +10,10 @@ class Labyrinth(arcade.Window):
         self.inventarliste = arcade.SpriteList()
         self.lebensliste = arcade.SpriteList()
         self.werfliste = arcade.SpriteList()
+
+        self.setup()
+
+    def setup(self):
         #inv
         self.inv = arcade.Sprite("truheninventar.png")
         self.inv.center_x = 25000
@@ -25,6 +29,13 @@ class Labyrinth(arcade.Window):
         self.truhe.center_x = 375
         self.truhe.center_y = 25
         self.blockliste.append(self.truhe)
+        #zug
+        self.sogliste = arcade.SpriteList()
+
+        self.sog = arcade.Sprite("achtung.png",20)
+        self.sog.center_x = 250
+        self.sog.center_y= 250
+        self.sogliste.append(self.sog)
         #blöcke
         block =arcade.Sprite("tresor.png",3)
         block.center_x=125
@@ -42,7 +53,7 @@ class Labyrinth(arcade.Window):
         self.blockliste.append(block)
 
         block =arcade.Sprite("meer+strand.png")
-        block.center_x=225
+        block.center_x=223
         block.center_y=25
         self.blockliste.append(block)
 
@@ -122,6 +133,7 @@ class Labyrinth(arcade.Window):
         self.geisti.center_x = -500
         self.geisti.center_y = 250
         self.geist.append(self.geisti)
+
         block =arcade.Sprite("meer+strand.png")
         block.center_x=275
         block.center_y=475
@@ -273,6 +285,10 @@ class Labyrinth(arcade.Window):
         block.center_y=325
         self.blockliste.append(block)
 
+ #       self.mauernliste = arcade.SpriteList()
+  #      self.maur = arcade.Sprite("mauer.png")
+#        self.maur.center_x = 
+
         block =arcade.Sprite("meer+strand.png")
         block.center_x=375
         block.center_y=275
@@ -312,6 +328,13 @@ class Labyrinth(arcade.Window):
         block.center_x=125
         block.center_y=375
         self.blockliste.append(block)
+        #start
+        #self.startliste = arcade.SpriteList
+#
+ ##       self.start = arcade.Sprite("start_lebutton.png")
+      #  self.start.center_x = 250
+   ##     self.start.center_y = 250
+     #   self.startliste.append(self.start)
         #verloren
         self.verloren_schild =arcade.Sprite("win.png",2)
         self.verloren_schild.center_x=7515365535654523
@@ -329,6 +352,13 @@ class Labyrinth(arcade.Window):
         win.center_x=75
         win.center_y=525
         self.gewonnenliste.append(win)
+        #monster
+        self.monsterliste = arcade.SpriteList()
+
+        self.spinner = arcade.Sprite("spinner.png",0.18)
+        self.spinner.center_x = 225
+        self.spinner.center_y = 750
+        self.monsterliste.append(self.spinner)
         #spieler
         self.spielerliste = arcade.SpriteList()
 
@@ -367,26 +397,35 @@ class Labyrinth(arcade.Window):
         self.fadenkreuz.center_x=-10
         self.fadenkreuz.center_y=-10
         self.mouseliste.append(self.fadenkreuz)
+        self.geist = arcade.SpriteList()
+
+        self.geisti = arcade.Sprite("goustblock.png")
+        self.geisti.center_x = -500
+        self.geisti.center_y = 250
+        self.geist.append(self.geisti)
         #countdowns
-        self.zeit = 25
+        self.zeit = 12
         self.kill_zeit = 2
         self.explosions_zeit = 1
     #taste drücken
     def on_key_press(self,symbol,modifiers):
         if symbol == arcade.key.W:
-            self.spieler.change_y=3
+            self.spieler.change_y=15
         elif symbol == arcade.key.S:
-            self.spieler.change_y=-3
+            self.spieler.change_y=-15
         elif symbol == arcade.key.D:
-            self.spieler.change_x=3
+            self.spieler.change_x=15
         elif symbol == arcade.key.A:
-            self.spieler.change_x=-3
+            self.spieler.change_x=-15
         elif symbol == arcade.key.Q:
             self.bombe.set_position(275,325)
         elif symbol == arcade.key.ESCAPE:
             arcade.close_window()
         elif symbol == arcade.key.E:
             self.inv.set_position(2501,2501)
+        elif symbol == arcade.key.Z:
+            self.sog.change_y = 10
+
     #taste loslassen
     def on_key_release(self, symbol, modifiers):
         if symbol == arcade.key.W:
@@ -404,7 +443,7 @@ class Labyrinth(arcade.Window):
         sprite.center_y = y
         sprite.set_hit_box([(1, 1), (-1, 1), (-1, -1), (1, -1)])
         if self.perle not in self.inventarliste and self.perle in self.werfliste:
-            self.geisti.position=(250,250)
+            self.spieler.position=(250,250)
             
         
 
@@ -423,12 +462,13 @@ class Labyrinth(arcade.Window):
             self.spieler.texture = arcade.load_texture("bigbruder.png")
 
 
-        if arcade.check_for_collision(sprite,self.geisti):
-            self.spieler.position=(425,425)
+        if arcade.check_for_collision(self.spieler,self.spinner):
+            print("spinne,spinne!")
 
             ...
-
-
+        if arcade.check_for_collision(self.sog,self.spieler):
+            self.spieler.position(325,25)
+            ...
     #maus:bewegungen
     def on_mouse_motion(self, x: int, y: int, dx: int, dy: int):
         self.fadenkreuz.center_x = x
@@ -443,7 +483,7 @@ class Labyrinth(arcade.Window):
     def on_update(self,delta_time):
         #zeit
         if self.zeit <= 0:
-            self.verloren_schild.position(250,250)
+            arcade.draw_text("VERLOREN!",0,0,250,250,font_size=18,font_name="Kenney Blocks")
         self.zeit = self.zeit - delta_time
         #updates
         self.physik_engine.update()
@@ -487,6 +527,10 @@ class Labyrinth(arcade.Window):
         #zeichnen
     def on_draw(self):
         self.clear()
+        #tuff tuff tuff die eisenbahn🚄
+        self.sogliste.draw()
+        #start
+        #self.startliste.draw()
         #blöcke
         self.blockliste.draw()
         #inventar
@@ -497,7 +541,8 @@ class Labyrinth(arcade.Window):
         self.gegenstandliste.draw()
         #werfen
         self.werfliste.draw()
-
+        #monster
+        self.monsterliste.draw()
         #leben
         self.lebensliste.draw()
         #spieler
@@ -506,8 +551,7 @@ class Labyrinth(arcade.Window):
         #maus
         self.mouseliste.draw()
         arcade.draw_text(round(self.zeit), 440,475, font_size=18,font_name="Kenney Blocks")
-        arcade.draw_text("Zeit:",350,475, font_size=18,font_name="Kenney Blocks")
-       
+        arcade.draw_text("Zeiqwerzuikoloiuztzuzgfghjuhgfghiuzfdfztfdxfzu8uztfdft787trfdtzugtfdsysdfdyhallofghjuhgfduijhgfdjhgfduzgfzuzgtfdzuzgtfuihgijuhjolkmlpölkmknknechtjiolkjhkjmnkolkijnjit:",150,475, font_size=6,font_name="Kenney Blocks")
         #audio = arcade.load_sound("hintergrundmusik.wav",False) 
 
 
