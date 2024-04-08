@@ -404,7 +404,7 @@ class Labyrinth(arcade.Window):
         self.geisti.center_y = 250
         self.geist.append(self.geisti)
         #countdowns
-        self.zeit = 12
+        self.zeit = 11
         self.kill_zeit = 2
         self.explosions_zeit = 1
     #taste drücken
