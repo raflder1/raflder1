@@ -482,8 +482,6 @@ class Labyrinth(arcade.Window):
     #updates
     def on_update(self,delta_time):
         #zeit
-        if self.zeit <= 0:
-            arcade.draw_text("VERLOREN!",0,0,250,250,font_size=18,font_name="Kenney Blocks")
         self.zeit = self.zeit - delta_time
         #updates
         self.physik_engine.update()
@@ -564,3 +562,4 @@ class Labyrinth(arcade.Window):
 
 Labyrinth()
 arcade.run()
+#todo ein weiterres featcher ins spiel einbauen bis 15.04.2034
