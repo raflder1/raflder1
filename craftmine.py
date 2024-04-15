@@ -3,7 +3,7 @@ import arcade
 class Craftmine(arcade.Window):
     def __init__(self):
         super ().__init__(500,500,"craftmine")
-        arcade.set_background_color(arcade.color.SKY_BLUE)
+        arcade.set_background_color(arcade.color.ZINNWALDITE_BROWN)
         self.bolckliste = arcade.SpriteList()#blöcke
         self.blockgas = arcade.Sprite("blockgras.png")
         self.blockgas.center_x = 475
@@ -20,7 +20,8 @@ class Craftmine(arcade.Window):
         self.rafl_der_Iliste.append(self.rafl_I)
     def on_key_press(self, symbol, modifiers):
         if symbol == arcade.key.A:
-            self.rafl_I.change_x = -10
+            self.rafl_I.change_x=-15
+        
         
     def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
         sprite = arcade.Sprite()
@@ -33,5 +34,6 @@ class Craftmine(arcade.Window):
         self.clear()
         self.bolckliste.draw()
         self.rafl_der_Iliste.draw()
+    def on_update
 Craftmine()
 arcade.run()
