@@ -483,6 +483,9 @@ class Labyrinth(arcade.Window):
     def on_update(self,delta_time):
         #zeit
         self.zeit = self.zeit - delta_time
+        if self.zeit <= 0:
+            arcade.draw_text("Verloren",250,250,font_size=18,font_name="Kenney Blocks")
+            
         #updates
         self.physik_engine.update()
         self.win_schild.update()
