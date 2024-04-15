@@ -10,6 +10,7 @@ class Labyrinth(arcade.Window):
         self.inventarliste = arcade.SpriteList()
         self.lebensliste = arcade.SpriteList()
         self.werfliste = arcade.SpriteList()
+    def setup(self):
         #inv
         self.inv = arcade.Sprite("truheninventar.png")
         self.inv.center_x = 25000
@@ -31,7 +32,7 @@ class Labyrinth(arcade.Window):
         block.center_y=475
         self.blockliste.append(block)
 
-        block =arcade.Sprite("meer+strand.png")
+        block =arcade.Sprite("meer+strand.png") 
         block.center_x=175
         block.center_y=25
         self.blockliste.append(block)
@@ -153,7 +154,7 @@ class Labyrinth(arcade.Window):
         self.blockliste.append(block)
 
         block =arcade.Sprite("meer+strand.png")
-        block.center_x=475
+        block.center_x=475 
         block.center_y=375
         self.blockliste.append(block)
 
@@ -387,6 +388,9 @@ class Labyrinth(arcade.Window):
             arcade.close_window()
         elif symbol == arcade.key.E:
             self.inv.set_position(2501,2501)
+        elif symbol == arcade.key.R:
+            self.setup()
+
     #taste loslassen
     def on_key_release(self, symbol, modifiers):
         if symbol == arcade.key.W:
@@ -471,8 +475,10 @@ class Labyrinth(arcade.Window):
             self.win_schild.position = (250, 250)
             self.kill_zeit=self.kill_zeit - delta_time
             if self.kill_zeit <= 0:
-                 self.verloren_schild.position(250,250)
-        #diamant
+                arcade.draw_text("VERLOREN, PROBIERE ES NOCH MAL",0,0,250,250,font_name="Kenny Blocks",font_size=18)
+                arcade.draw_text("DRÜCKE R FÜR NOCHMAL!",0,0,250,240,font_name="Kenny Blocks",font_size=18)
+
+        #diamant 
         if arcade.check_for_collision(self.spieler,self.dia):
              self.dia.kill()
         #bombe
@@ -518,5 +524,5 @@ class Labyrinth(arcade.Window):
 
 
 
-Labyrinth()
 arcade.run()
+Labyrinth()
