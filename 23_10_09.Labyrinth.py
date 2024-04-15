@@ -486,6 +486,9 @@ class Labyrinth(arcade.Window):
             self.bombe.texture = arcade.load_textures("explosion.png")
 
 
+        if arcade.check_for_collision(self):
+            self.herz.textures = arcade.load_texture("totherz.png")
+            self.spieler.kill()
         
          
 
@@ -524,5 +527,5 @@ class Labyrinth(arcade.Window):
 
 
 
-arcade.run()
 Labyrinth()
+arcade.run()
