@@ -34,6 +34,8 @@ class Craftmine(arcade.Window):
         self.clear()
         self.bolckliste.draw()
         self.rafl_der_Iliste.draw()
-    def on_update
+    def on_update(self,delta_time):
+        self.bolckliste.update()
+
 Craftmine()
 arcade.run()
