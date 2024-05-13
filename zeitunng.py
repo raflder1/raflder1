@@ -14,6 +14,28 @@ class Zeitung(arcade.Window):
         self.ungzeit.center_y = 250
         self.zeitliste.append(self.ungzeit)
 
+        self.versteckliste = arcade.SpriteList()
+        
+        self.Palme = arcade.Sprite("palme.png")
+        self.Palme.center_x = 370
+        self.Palme.center_y = 209
+        self.versteckliste.append(self.Palme)
+        
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
         self.releips = arcade.Sprite("bigbruder.png",2)
         self.releips.center_x = 250
         self.releips.center_y = 250
@@ -23,14 +45,14 @@ class Zeitung(arcade.Window):
         self.unge.center_y = 2345678
         self.zeitliste.append(self.unge)
     def on_key_press(self,symbol,modifiers):
-         if symbol == arcade.key.ESCAPE:
+        if symbol == arcade.key.ESCAPE:
             arcade.close_window()
-         elif symbol == arcade.key.W:
+        elif symbol == arcade.key.W:
             self.releips.change_x= -3
-  #      elif symbol == arcade.key.S:
-    #         self.spieler.change_y=-15
-       # elif symbol == arcade.key.D:
-     #       self.spieler.change_x=15
+        elif symbol == arcade.key.S:
+            self.releips.change_y=3
+        elif symbol == arcade.key.SPACE:
+            self.releips.change_x=1
       #  elif symbol == arcade.key.A:
       #      self.spieler.change_x=-15
      ##   elif symbol == arcade.key.Q:
@@ -44,12 +66,10 @@ class Zeitung(arcade.Window):
     def on_key_release(self, symbol, modifiers):
         if symbol == arcade.key.W:
             self.releips.change_x = 0
-   #     elif symbol == arcade.key.S:
-         #    self.spieler.change_y = 0
-     #   elif symbol == arcade.key.D:
-      #      self.spieler.change_x = 0
-       # elif symbol == arcade.key.A:
-        #    self.spieler.change_x= 0
+        elif symbol == arcade.key.S:
+             self.releips.change_y = 0
+        elif symbol == arcade.key.SPACE:
+            self.releips.change_x = -1
     #clicks
     def on_mouse_press(self, x, y, button, modifiers):
         sprite = arcade.Sprite()
@@ -88,6 +108,7 @@ class Zeitung(arcade.Window):
         self.clear()
         self.zeitliste.draw()
         self.estilleips.draw()
+        self.versteckliste.draw()
         #tuff tuff tuff die eisenbahn🚄
         
         #arcade.play_sound(audio,1.0,-1,False) 
