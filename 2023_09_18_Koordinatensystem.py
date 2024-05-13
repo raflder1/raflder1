@@ -5,6 +5,7 @@ arcade.open_window(600, 600, "Koordinatensystem", True)
 
 # Wir setzen die Hintergrundfarbe auf Weiß (WHITE)
 arcade.set_background_color(arcade.color.ALICE_BLUE)
+arcade.set_background_color(arcade.color.AMAZON)
 
 # Wir beginnen das Zeichnen der im Fenster vorkommenden Dinge
 arcade.start_render()
