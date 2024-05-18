@@ -12,6 +12,7 @@ arcade.draw_points
 # Horizontale Linien
 # Eine Linie von (x=0, y=60) nach (x=600, y=60) in der Farbe Schwarz
 arcade.draw_line(0, 60, 600, 60, arcade.color.BLACK)
+
 # Eine Linie von (x=0, y=120) nach (x=600, y=120) in der Farbe Schwarz
 arcade.draw_line(0, 120, 600, 120, arcade.color.BLACK)
 arcade.draw_line(0, 180, 600, 180, arcade.color.BLACK)
