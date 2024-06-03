@@ -52,7 +52,7 @@ class Zeitung(arcade.Window):
         elif symbol == arcade.key.S:
             self.releips.change_y=3
         elif symbol == arcade.key.SPACE:
-            self.releips.change_x=1
+                      self.releips.change_x=1
       #  elif symbol == arcade.key.A:
       #      self.spieler.change_x=-15
      ##   elif symbol == arcade.key.Q:
@@ -78,7 +78,9 @@ class Zeitung(arcade.Window):
         sprite.set_hit_box([(1, 1), (-1, 1), (-1, -1), (1, -1)])
         
             
-        
+        if arcade.check_for_collision(sprite,self.Palme):
+             self.player.position=()
+             
 
 
         #truhe öffnen
