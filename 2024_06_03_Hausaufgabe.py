@@ -6,3 +6,15 @@
 # Falls eine negative Zahl übergeben wird, soll 0 zurückgegeben werden.
 
 # TODO
+
+
+
+def fakultät(Zahl: int) -> int:
+    
+    
+    
+    fakultät(5) == 120.
+    
+    Zahl =7
+    for i in range(18):
+        print(fakultät)
