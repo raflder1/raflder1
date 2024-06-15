@@ -10,12 +10,8 @@ class Labyrinth(arcade.Window):
         self.inventarliste = arcade.SpriteList()
         self.lebensliste = arcade.SpriteList()
         self.werfliste = arcade.SpriteList()
-<<<<<<< HEAD
-=======
 
-        self.setup()
 
->>>>>>> a2c4043e7e934dbe271737b53b3d2970be3d091f
     def setup(self):
         #inv
         self.inv = arcade.Sprite("truheninventar.png")
@@ -426,13 +422,11 @@ class Labyrinth(arcade.Window):
             arcade.close_window()
         elif symbol == arcade.key.E:
             self.inv.set_position(2501,2501)
-<<<<<<< HEAD
         elif symbol == arcade.key.R:
             self.setup()
-=======
         elif symbol == arcade.key.Z:
             self.sog.change_y = 10
->>>>>>> a2c4043e7e934dbe271737b53b3d2970be3d091f
+
 
     #taste loslassen
     def on_key_release(self, symbol, modifiers):
@@ -576,6 +570,6 @@ class Labyrinth(arcade.Window):
 
 
 
-Labyrinth()
-arcade.run()
+##Labyrinth()
+#arcade.run()
 #todo ein weiterres featcher ins spiel einbauen bis 15.04.2034
