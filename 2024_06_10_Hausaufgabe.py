@@ -4,17 +4,20 @@
 # zurückgibt, ob diese aufsteigend sortiert ist oder nicht.
 # Z.B.: aufsteigend_sortiert([1, 4, 6, 6, 9, 10]) == True, aufsteigend_sortiert([10, 13, 4, 9]) == False.
 
-i = 1
+
 
 def aufsteigend_sortiert(liste: list) -> bool:
 
 
 
-    for i in range(1,i,11):
-        if i <= 11:
+    
+        if aufsteigend_sortiert <= 11:
             print("Ja")
         else:
             print("Nein")
+
+
+        
 
     aufsteigend_sortiert([1, 4, 6, 6, 9, 11])
     aufsteigend_sortiert([10, 13, 4, 9])
