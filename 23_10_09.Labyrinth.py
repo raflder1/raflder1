@@ -482,7 +482,7 @@ class Labyrinth(arcade.Window):
 
 
     #updates
-    def on_update(self,delta_time):
+    def on_update(self,delta_time)
         #zeit
         self.zeit = self.zeit - delta_time
         if self.zeit <= 0:

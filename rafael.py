@@ -7,21 +7,17 @@
 
 
 def aufsteigend_sortiert(liste: list) -> bool:
-  i = 0 
-  while i < len(liste):
-    if liste[i] > liste[i + 1]:
-        return False
-    i +=1
-  return True
 
-print(aufsteigend_sortiert([1, 4, 6, 6, 9, 11]))
+
+
     
-    #    if aufsteigend_sortiert <= 11:
-   #         print("Ja")
-    #    else:
-    #        print("Nein")
-#
-#
- #       
+        if aufsteigend_sortiert <= 11:
+            print("Ja")
+        else:
+            print("Nein")
 
-    #aufsteigenortiert([10, 13, 4, 9])
+
+        
+
+        aufsteigend_sortiert([1, 4, 6, 6, 9, 11])
+        aufsteigend_sortiert([10, 13, 4, 9])
