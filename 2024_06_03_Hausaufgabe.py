@@ -17,7 +17,7 @@ def fakultät(zahl: int) -> int:
     return result
 
 
-print(fakultät(5))
+print(fakultät())
 
 
 def fakultät_q(zahl: int) -> int:
