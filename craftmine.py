@@ -13,6 +13,19 @@ class Craftmine(arcade.Window):
         self.blockgas1.center_x = 425
         self.blockgas1.center_y = 175
         self.bolckliste.append(self.blockgas1)
+        self.blockgas1 = arcade.Sprite("blockgras.png")
+        self.blockgas1.center_x = 375
+        self.blockgas1.center_y = 175
+        self.bolckliste.append(self.blockgas1)
+        self.blockgas1 = arcade.Sprite("blockgras.png")
+        self.blockgas1.center_x = 325
+        self.blockgas1.center_y = 175
+        self.bolckliste.append(self.blockgas1)
+        self.blockgas1 = arcade.Sprite("blockgras.png")
+        self.blockgas1.center_x = 275
+        self.blockgas1.center_y = 175
+        self.bolckliste.append(self.blockgas1)
+
         self.rafl_der_Iliste = arcade.SpriteList()
         self.rafl_I = arcade.Sprite("rafl_der_I.png",1.89)
         self.rafl_I.center_x = 475
