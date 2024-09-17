@@ -1,5 +1,5 @@
 import arcade
-class Labyrinth(arcade.Window):
+class pong(arcade.Window):
     def __init__(self):
         super ().__init__(500,500,"labyrinth")
 
@@ -560,16 +560,16 @@ class Labyrinth(arcade.Window):
         self.mouseliste.draw()
         arcade.draw_text(round(self.zeit), 440,475, font_size=18,font_name="Kenney Blocks")
         arcade.draw_text("Zeiqwerzuikoloiuztzuzgfghjuhgfghiuzfdfztfdxfzu8uztfdft787trfdtzugtfdsysdfdyhallofghjuhgfduijhgfdjhgfduzgfzuzgtfdzuzgtfuihgijuhjolkmlpölkmknknechtjiolkjhkjmnkolkijnjit:",150,475, font_size=6,font_name="Kenney Blocks")
-        #audio = arcade.load_sound("hintergrundmusik.wav",False) 
+        audio = arcade.load_sound("hintergrundmusik.wav",False) 
 
 
-        #arcade.play_sound(audio,1.0,-1,False) 
-
-
-
+        arcade.play_sound(audio,1.0,-1,False) 
 
 
 
-##Labyrinth()
-#arcade.run()
+
+
+
+Labyrinth()
+arcade.run()
 #todo ein weiterres featcher ins spiel einbauen bis 15.04.2034
